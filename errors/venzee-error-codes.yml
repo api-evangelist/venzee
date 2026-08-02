@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+source: https://apidocs.jasperpim.com/
+format: http-status
+envelope: json
+notes: >-
+  The Jasper PIM (Venzee) API reference documents standard HTTP status codes for
+  failure modes. No RFC 9457 problem+json media type is documented; errors are
+  signaled via HTTP status. This is the API-level error registry captured from
+  the docs (not fabricated); a fuller machine-readable catalog would require a
+  published OpenAPI, which the provider does not currently expose.
+errors:
+- status: 401
+  title: Unauthorized
+  cause: Invalid, missing, or rotated Bearer token.
+  remediation: >-
+    Obtain a current token from your account representative; rotation takes
+    effect immediately, so refresh the Authorization header.
+- status: 404
+  title: Not Found
+  cause: The requested resource (product, category, brand, asset, etc.) does not exist.
+  remediation: Verify the resource id/SKU and tenant host.
+- status: 422
+  title: Unprocessable Entity
+  cause: Request payload failed validation (missing/invalid attributes or option values).
+  remediation: Correct the request body against the attribute/option schema and retry.

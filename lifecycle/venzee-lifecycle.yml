@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: searched
+source: https://apidocs.jasperpim.com/
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://apidocs.jasperpim.com/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: >-
+    No formal deprecation policy or RFC 8594 Sunset/Deprecation header support is
+    documented. API tokens are issued and rotated by the account representative,
+    and rotation takes effect immediately (a rotated token returns 401).
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+deprecated_operations: []
+notes: >-
+  Single documented API version (v1). No public status page, SLA, or roadmap was
+  found; StatusPage and Deprecation pointers are intentionally not emitted (no
+  fabrication).

@@ -1,0 +1,51 @@
+generated: '2026-07-21'
+method: searched
+source: https://apidocs.jasperpim.com/
+docs: https://apidocs.jasperpim.com/
+authentication:
+  style: bearer-token
+  header: Authorization
+  format: "Bearer {token}"
+  see: authentication/venzee-authentication.yml
+base_url:
+  pattern: https://{hash}.{region}.jasperpim.com/api/v1
+  notes: >-
+    Tenant-scoped host. {hash} is the per-tenant PIM identifier (e.g. sxd50nab34)
+    and {region} is the data-center location, either corsair or ans.
+versioning:
+  scheme: uri-path
+  current: v1
+  see: lifecycle/venzee-lifecycle.yml
+pagination:
+  style: page
+  response_fields: [links, meta]
+  page_sizes:
+    generic_entities: 250
+    concrete_entities: 1000
+  notes: >-
+    List responses return paginated JSON with `links` and `meta` objects showing
+    the current page position and totals. Generic entities paginate at 250
+    entries per page; concrete entities at 1000.
+error_envelope:
+  style: http-status
+  documented_statuses: [401, 404, 422]
+  see: errors/venzee-error-codes.yml
+events:
+  webhooks:
+    supported: true
+    controls: enable/disable per subscription
+    see: asyncapi/venzee-webhooks.yml
+  changelog_feed:
+    supported: true
+    purpose: incremental syncs via a changelog event feed endpoint
+async:
+  exports:
+    supported: true
+    style: asynchronous export jobs
+idempotency:
+  supported: unknown
+  notes: >-
+    No idempotency-key header or contract is documented in the public API
+    reference. Not asserted (no Idempotency pointer emitted) to avoid fabrication.
+rate_limiting:
+  documented: false

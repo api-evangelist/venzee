@@ -1,0 +1,84 @@
+generated: '2026-07-21'
+method: searched
+source: https://apidocs.jasperpim.com/
+notes: >-
+  Entity model captured from the Jasper PIM (Venzee) API reference resource list.
+  Relationships reflect the documented PIM structure (variants, parent/child
+  products, channel-specific pricing and inventory, brand and category
+  assignment, media assets). Derived from documentation prose, not from a
+  published OpenAPI (none available), so cardinalities are the documented intent.
+entities:
+- name: product
+  description: Core catalog item; supports variants, bundles, and parent/child relationships.
+  relationships:
+  - type: has_many
+    target: variant
+    via: product_id
+  - type: belongs_to
+    target: brand
+    via: brand_id
+  - type: has_many
+    target: category
+    via: category_id
+  - type: has_many
+    target: asset
+    via: product_id
+  - type: has_many
+    target: price
+    via: product_id
+  - type: has_many
+    target: inventory
+    via: product_id
+  - type: has_many
+    target: attribute_value
+    via: product_id
+- name: variant
+  description: SKU-level variation of a product.
+  relationships:
+  - type: belongs_to
+    target: product
+    via: product_id
+- name: category
+  description: Hierarchical category node with versioning.
+  relationships:
+  - type: has_one
+    target: category
+    via: parent_id
+- name: brand
+  description: Product brand with its own assets.
+  relationships:
+  - type: has_many
+    target: asset
+    via: brand_id
+- name: attribute
+  description: Configurable product attribute definition.
+  relationships:
+  - type: has_many
+    target: option
+    via: attribute_id
+- name: option
+  description: Allowed value/type for an attribute.
+  relationships:
+  - type: belongs_to
+    target: attribute
+    via: attribute_id
+- name: price
+  description: Channel-specific price book entry.
+  relationships:
+  - type: belongs_to
+    target: channel
+    via: channel_id
+- name: inventory
+  description: Stock level at a location.
+  relationships:
+  - type: belongs_to
+    target: location
+    via: location_id
+- name: asset
+  description: Image or media file for a product, category, or brand.
+- name: channel
+  description: Read-only sales-channel configuration (syndication target).
+- name: export
+  description: Asynchronous data export job.
+- name: webhook
+  description: Event subscription for change notifications.

@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: https://apidocs.jasperpim.com/
+docs: https://apidocs.jasperpim.com/
+summary:
+  types: [http]
+  http_schemes: [bearer]
+  api_key_in: []
+  oauth2_flows: []
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: >-
+    All requests authenticate with a Bearer token supplied in the Authorization
+    header ("Authorization: Bearer {token}"). API tokens are issued and rotated
+    by the tenant's Jasper PIM account representative; administrator-level access
+    or higher is required to generate a token. Token rotation takes effect
+    immediately and a rotated/invalid token returns 401 Unauthorized.
+  in: header
+  header_name: Authorization
+  format: "Bearer {token}"
+  sources: [https://apidocs.jasperpim.com/]
+notes:
+- Tokens are provisioned out-of-band by an account representative; there is no
+  self-service OAuth authorization or token endpoint documented.
+- The API base URL is tenant-scoped (https://{hash}.{region}.jasperpim.com/api/v1),
+  so the token is bound to a specific PIM tenant and region (corsair or ans).

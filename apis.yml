@@ -1,7 +1,30 @@
 aid: venzee
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/venzee.png
 name: Venzee
-description: Venzee is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Venzee is a product data syndication and Product Information Management (PIM)
+  platform for ecommerce brands, manufacturers, and distributors, now operating
+  as Jasper PIM (JasperX) with a channel connector ecosystem powered by Venzee's
+  MESH technology. It centralizes product catalogs — SKUs, attributes, variants,
+  regional pricing, inventory, and digital assets — into a single source of
+  product truth and automatically syndicates enriched content out to sales
+  channels and marketplaces such as Shopify, BigCommerce, and Amazon. Venzee
+  exposes a RESTful API (the Jasper PIM API v1) secured with Bearer-token
+  authentication, along with webhooks, changelog event feeds for incremental
+  syncs, and asynchronous export jobs, so teams can wire their ERP and
+  downstream systems directly to their product data.
 url: https://raw.githubusercontent.com/api-evangelist/venzee/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,11 +33,41 @@ x-backed-by:
 x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v1
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Product Information Management
+- PIM
+- Ecommerce
+- Product Data Syndication
+- Retail
+- Catalog Management
+- API
+apis:
+- name: Jasper PIM API (Venzee)
+  description: >-
+    RESTful API for the Venzee / Jasper PIM platform. Manage products,
+    variants, categories, brands, attributes and options, channel-specific
+    pricing and inventory, and digital assets; subscribe to webhooks; read the
+    changelog event feed for incremental syncs; and run asynchronous export
+    jobs. Authentication is a Bearer token issued and rotated by an account
+    representative. The production base URL is tenant-scoped as
+    https://{hash}.{region}.jasperpim.com/api/v1 (region is corsair or ans).
+  humanURL: https://apidocs.jasperpim.com/
+  baseURL: https://api.jasperpim.com/api/v1
+  properties:
+  - type: Documentation
+    url: https://apidocs.jasperpim.com/
+  - type: APIReference
+    url: https://apidocs.jasperpim.com/
+  - type: Authentication
+    url: authentication/venzee-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +76,35 @@ maintainers:
 common:
 - type: Website
   url: https://venzee.com
+- type: DeveloperPortal
+  url: https://apidocs.jasperpim.com/
+- type: Documentation
+  url: https://apidocs.jasperpim.com/
+- type: APIReference
+  url: https://apidocs.jasperpim.com/
+- type: Pricing
+  url: https://www.jasperpim.com/pricing
+- type: Blog
+  url: https://www.jasperpim.com/blog
+- type: Support
+  url: https://www.jasperpim.com/help-centre
+- type: Login
+  url: https://login.jasperpim.com/login
+- type: TermsOfService
+  url: https://www.jasperpim.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.jasperpim.com/privacy-policy
+- type: Authentication
+  url: authentication/venzee-authentication.yml
+- type: Conventions
+  url: conventions/venzee-conventions.yml
+- type: ErrorCatalog
+  url: errors/venzee-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/venzee-lifecycle.yml
+- type: Webhooks
+  url: asyncapi/venzee-webhooks.yml
+- type: DataModel
+  url: data-model/venzee-data-model.yml
+- type: DomainSecurity
+  url: security/venzee-domain-security.yml

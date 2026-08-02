@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: https://apidocs.jasperpim.com/
+spec_type: Webhooks
+summary: >-
+  The Jasper PIM (Venzee) API exposes a webhook surface: consumers create event
+  subscriptions with enable/disable controls to receive push notifications when
+  PIM data changes. A complementary Changelogs event feed endpoint supports
+  incremental syncs by polling for changes. No AsyncAPI document is published, so
+  no verbatim event schema is captured; this records the advertised webhook
+  surface only (specific event-type names are not enumerated in the public docs).
+delivery:
+  style: http-webhook
+  subscription: per-subscription create with enable/disable controls
+  management_endpoint: /api/v1/webhooks
+poll_alternative:
+  changelog_feed: /api/v1/changelogs
+  purpose: incremental sync event feed
+events: []
+notes: >-
+  Event-type catalog not published; entries left empty rather than fabricated.
+  The type:Webhooks pointer reflects a genuinely advertised webhook capability.
